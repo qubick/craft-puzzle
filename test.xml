@@ -1,0 +1,8 @@
+<craft>
+    <craft name="puzzle" src="./index.xml"/>
+    <row>        
+        <puzzle side1="+rectangle"></puzzle>
+        <puzzle side2="-triangle"></puzzle>
+        <puzzle side2="+triangle" side1="+rectangle"></puzzle>
+    </row>
+</craft>

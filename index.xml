@@ -1,0 +1,52 @@
+<craft>
+    <parameter name="side1" type="string" default="none"/>
+    <parameter name="side2" type="string" default="none"/> 
+    <parameter name="side3" type="string" default="none"/> 
+    <parameter name="side4" type="string" default="none"/> 
+    <script type="text/openjscad">
+        function main(params) {
+
+            var canvas = cube([20, 20, 1]),
+                conShape = circle({
+                    r: 3,
+                    fn: 50
+                });
+
+            var piece = canvas
+
+            if (params.side1 != 'none') {
+                var connector = linear_extrude({
+                        height: 1
+                    }, conShape)
+                    .translate([-5, 7, 0]);
+
+                piece = union(
+                    piece,
+                    connector
+                )
+            }
+            //puzzle4's connector shape
+
+            if (params.side2 != 'none') {
+
+                var conShape2 = polygon([
+                    [0, 0],
+                    [2, 0],
+                    [1, 1]
+                ]).scale(4);
+                conShape2 = linear_extrude({
+                    height: 1
+                }, conShape2)
+                    .translate([7, 0, 0]);
+
+                var piece = difference(
+                    piece,
+                    conShape2
+                    //difference(piece, puzzle4()) <-- deadlock
+                )
+            }
+            return piece
+
+        }
+    </script>
+</craft>
