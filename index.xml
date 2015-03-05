@@ -6,8 +6,12 @@
     <script type="text/openjscad">
         function main(params) {
 
+				//to do: change connector shape to cylinder
+				//		   remove all linear extrude
+				//			get parameter of shape as number, assign to cylinder
+
             var canvas = cube([20, 20, 1]),
-                conShape = circle({
+                connector_Circle = circle({
                     r: 3,
                     fn: 50
                 });
@@ -17,7 +21,7 @@
             if (params.side1 != 'none') {
                 var connector = linear_extrude({
                         height: 1
-                    }, conShape)
+                    }, connector_Circle)
                     .translate([-5, 7, 0]);
 
                 piece = union(
@@ -29,19 +33,19 @@
 
             if (params.side2 != 'none') {
 
-                var conShape2 = polygon([
+                var connector_Triangle = polygon([
                     [0, 0],
                     [2, 0],
                     [1, 1]
                 ]).scale(4);
-                conShape2 = linear_extrude({
+                connector_Triangle = linear_extrude({
                     height: 1
-                }, conShape2)
+                }, connector_Triangle)
                     .translate([7, 0, 0]);
 
                 var piece = difference(
                     piece,
-                    conShape2
+                    connector_Triangle
                     //difference(piece, puzzle4()) <-- deadlock
                 )
             }
