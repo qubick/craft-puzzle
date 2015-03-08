@@ -6,51 +6,103 @@
     <script type="text/openjscad">
         function main(params) {
 
-				//to do: change connector shape to cylinder
-				//		   remove all linear extrude
-				//			get parameter of shape as number, assign to cylinder
 
-            var canvas = cube([20, 20, 1]),
-                connector_Circle = circle({
-                    r: 3,
-                    fn: 50
-                });
+			//	to do: deal with minus sign
+            //          if minus -> difference
+            //          if plus -> union
+            //  to do: deal with no sideN parameter e.g.) only side1, side2?
 
-            var piece = canvas
+            if (params.side1 != 'none') { //bottom
 
-            if (params.side1 != 'none') {
-                var connector = linear_extrude({
-                        height: 1
-                    }, connector_Circle)
-                    .translate([-5, 7, 0]);
+				var direction = params.side1[0]
+				var shape = params.side1.substring(1,params.side1.length)
 
-                piece = union(
-                    piece,
-                    connector
-                )
+                //var connector1 = findShape(shape);
+                if(shape === 'triangle'){
+                    var connector1 = cylinder({r:5,fn:3})
+                                    .rotateZ(60)
+                                    .translate([10,0,0]); 
+                }else if(shape === 'rectangle'){
+                    var connector1 = cylinder({r:4,fn:4})
+                                    .rotateZ(45)
+                                    .translate([10,0,0]); 
+                }else if(shape === 'circle'){
+                    var connector1 = cylinder({r:4,fn:50})
+                                    .translate([10,0,0]);   
+                }
+                else if(shape === 'pentagon'){
+                    var connectr1 = cylinder({r:4,fn:5})
+                                .translate([10,0,0]);  
+                }else if(shape === 'hexagon'){
+                    var connectr1 = cylinder({r:4,fn:6})
+                                .translate([10,0,0]);  
+                } 
             }
-            //puzzle4's connector shape
 
-            if (params.side2 != 'none') {
-
-                var connector_Triangle = polygon([
-                    [0, 0],
-                    [2, 0],
-                    [1, 1]
-                ]).scale(4);
-                connector_Triangle = linear_extrude({
-                    height: 1
-                }, connector_Triangle)
-                    .translate([7, 0, 0]);
-
-                var piece = difference(
-                    piece,
-                    connector_Triangle
-                    //difference(piece, puzzle4()) <-- deadlock
-                )
+            if (params.side2 != 'none') { //left
+                var direction = params.side2[0]
+                var shape = params.side2.substring(1,params.side2.length)
+                
+                if(shape === 'triangle'){
+                    var connector2 = cylinder({r:5,fn:3}).rotateZ(180)
+                                    .translate([0,10,0]); 
+                }else if(shape === 'rectangle'){
+                    var connector2 = cylinder({r:4,fn:4})
+                                    .rotateZ(45)
+                                    .translate([0,10,0]); 
+                }else if(shape === 'circle'){
+                    console.log("circle")
+                    var connector2 = cylinder({r:4,fn:50})
+                                    .translate([0,10,0]);   
+                }
             }
-            return piece
 
-        }
+            if (params.side3 != 'none') { //top
+                var direction = params.side3[0]
+                var shape = params.side3.substring(1,params.side3.length)
+                
+                if(shape === 'triangle'){
+                    var connector3 = cylinder({r:5,fn:3}).rotateZ(180)
+                                    .translate([10,20,0]); 
+                }else if(shape === 'rectangle'){
+                    var connector3 = cylinder({r:4,fn:4})
+                                    .rotateZ(45)
+                                    .translate([10,20,0]); 
+                }else if(shape === 'circle'){
+                    console.log("circle")
+                    var connector3 = cylinder({r:4,fn:50})
+                                    .translate([10,20,0]);   
+                }
+            }
+
+            if (params.side4 != 'none') { //top
+                var direction = params.side4[0]
+                var shape = params.side4.substring(1,params.side4.length)
+                
+                if(shape === 'triangle'){
+                    var connector4 = cylinder({r:5,fn:3}).rotateZ(180)
+                                    .translate([20,10,0]); 
+                }else if(shape === 'rectangle'){
+                    var connector4 = cylinder({r:4,fn:4})
+                                    .rotateZ(45)
+                                    .translate([20,10,0]); 
+                }else if(shape === 'circle'){
+                    console.log("circle")
+                    var connector4 = cylinder({r:4,fn:50})
+                                    .translate([20,10,0]);   
+                }
+            }
+
+            return union(
+                    cube([20, 20, 1]) //flat canvas
+
+                    ,connector1 //should deal with case withough sideN param
+                    ,connector2
+                    ,connector3
+                    ,connector4
+           );
+        } // end of main
+        
+
     </script>
 </craft>
