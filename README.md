@@ -1,22 +1,20 @@
 # craft-puzzle
 
-Parameterized prism model
-
-
 ### Install
 	$ npm install craft-puzzle
 
 ### Parameters
-	- side1: connector shape and direction at the bottom
-	- side2: connector shape and direction at the left
-	- side3: connector shape and direction at the top
-	- side4: connector shape and direction at the bottom
+ - side1: connector shape and direction at the bottom
+ - side2: connector shape and direction at the left
+ - side3: connector shape and direction at the top
+ - side4: connector shape and direction at the bottom
 
 ## Parameter Format
-	`[+|-][rectangle|circle|triangle]
-	`+ makes convex connector
-	`- makes concave connector hole
-	`default is none, leave it empty if don't want to make connector on side
+- [+|-][rectangle|circle|triangle]
+- + makes convex connector
+- - makes concave connector hole
+- default is none
+- leave it empty if don't want to make connector on side
 
 ## Example
 ```html
