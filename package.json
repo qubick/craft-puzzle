@@ -1,6 +1,6 @@
 {
   "name": "craft-puzzle",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "craft parameterized puzzle pieces",
   "main": "index.js",
   "scripts": {
@@ -11,9 +11,22 @@
     "url": "https://github.com/qubick/craft-puzzle"
   },
   "author": "Jeeeun Kim, Tom Yeh",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/qubick/craft-puzzle/issues"
   },
-  "homepage": "https://github.com/qubick/craft-puzzle"
+  "homepage": "https://github.com/qubick/craft-puzzle",
+  "dependencies": {
+    "lodash": "^3.5.0"
+  },
+  "devDependencies": {},
+  "keywords": [
+    "3d",
+    "modeling",
+    "makerbot",
+    "3d",
+    "printing",
+    "craftml",
+    "puzzle"
+  ]
 }
