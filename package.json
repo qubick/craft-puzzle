@@ -1,6 +1,6 @@
 {
   "name": "craft-puzzle",
-  "version": "1.0.3",
+  "version": "1.0.3.1",
   "description": "craft parameterized puzzle pieces",
   "main": "index.js",
   "scripts": {
