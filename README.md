@@ -9,15 +9,15 @@
  - side3: connector shape and direction at the top
  - side4: connector shape and direction at the bottom
 
-## Parameter Format
+### Parameter Format
 - [ + | - ][ rectangle | circle | triangle ]
-- + makes convex connector
-- - makes concave connector hole
+- '+' makes convex connector
+- '-' makes concave connector hole
 - default is none
 - Leave it empty if don't want to make connector on side
 - More shapes will be updated
 
-## Example
+### Example
 ```html
  <craft>
  	<craft name="puzzle" src="./index.xml"/>
