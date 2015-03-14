@@ -10,11 +10,12 @@
  - side4: connector shape and direction at the bottom
 
 ## Parameter Format
-- [+|-][rectangle|circle|triangle]
+- [ + | - ][ rectangle | circle | triangle ]
 - + makes convex connector
 - - makes concave connector hole
 - default is none
-- leave it empty if don't want to make connector on side
+- Leave it empty if don't want to make connector on side
+- More shapes will be updated
 
 ## Example
 ```html
