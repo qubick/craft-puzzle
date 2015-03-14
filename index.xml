@@ -12,14 +12,14 @@
             //          if plus -> union
             //  to do: deal with no sideN parameter e.g.) only side1, side2?
             
-            var connectors = [];
+            var connectors = []; //for connector addtion
+            var holes = [];      //for connector hole
 
             if (params.side1 != 'none') { //bottom
-
 				var direction = params.side1[0]
+                console.log(direction)
 				var shape = params.side1.substring(1,params.side1.length)
 
-                //var connector1 = findShape(shape);
                 if(shape === 'triangle'){
                     var connector1 = cylinder({r:5,fn:3})
                                     .rotateZ(60)
@@ -39,7 +39,14 @@
                     var connectr1 = cylinder({r:4,fn:6})
                                 .translate([10,0,0]);  
                 }
-                connectors.push(connector1);
+
+                if(direction === '+')
+                    connectors.push(connector1)
+                else if(direction === '-')
+                    holes.push(connector1)
+                else
+                    console.log("You need to specify the direction of connector at the bottom.\nconvex: + \nconcave: -")
+
             }
 
             if (params.side2 != 'none') { //left
@@ -58,7 +65,13 @@
                     var connector2 = cylinder({r:4,fn:50})
                                     .translate([0,10,0]);   
                 }
-                connectors.push(connector2);
+
+                if(direction === '+')
+                    connectors.push(connector2)
+                else if(direction === '-')
+                    holes.push(connector2)
+                else
+                    console.log("You need to specify the direction of connector at the left.\nconvex: + \nconcave: -")
             }
 
             if (params.side3 != 'none') { //top
@@ -77,7 +90,13 @@
                     var connector3 = cylinder({r:4,fn:50})
                                     .translate([10,20,0]);   
                 }
-                connectors.push(connector3);
+
+                if(direction === '+')
+                    connectors.push(connector3)
+                else if(direction === '-')
+                    holes.push(connector3)
+                else
+                    console.log("You need to specify the direction of connector at the top of \nconvex: + \nconcave: -")
             }
 
             if (params.side4 != 'none') { //top
@@ -92,17 +111,29 @@
                                     .rotateZ(45)
                                     .translate([20,10,0]); 
                 }else if(shape === 'circle'){
-                    console.log("circle")
                     var connector4 = cylinder({r:4,fn:50})
                                     .translate([20,10,0]);   
                 }
-                connectors.push(connector4);
+                
+                if(direction === '+')
+                    connectors.push(connector4)
+                else if(direction === '-')
+                    holes.push(connector4)
+                else
+                    console.log("You need to specify the direction of connector at the right.\nconvex: + \nconcave: -")
             } 
 
             var piece = cube([20,20,1])
+
             connectors.forEach(function(c){
                 console.log("now adding side")
-                piece = union(piece, c);
+                piece = union(piece, c)
+                return piece;
+            })
+
+            holes.forEach(function(h){
+                console.log("now subtracting side")
+                piece = difference(piece, h)
                 return piece;
             })
 
