@@ -1,10 +1,11 @@
 <craft>
     <craft name="puzzle" src="./index.xml"/>
     <row>        
-        <puzzle side1="+triangle" side3="+rectangle" side4="+circle"></puzzle>
-        <puzzle side1="+triangle" side2="-circle" side3="+circle" side4="+rectangle"></puzzle>
-        <puzzle side2="-rectangle" side3="+triangle" side4="+triangle"></puzzle>
-		  <puzzle></puzzle>
+        <puzzle side1="-circle" side3="+rectangle" side4="+heptagon"></puzzle>
+        <puzzle side1="-triangle" side2="-heptagon" side3="+circle" side4="+octagon"></puzzle>
+        <puzzle side2="-octagon" side3="+triangle" side4="+hexagon"></puzzle>
+		  <puzzle side2="-hexagon" side4="+pentagon"></puzzle>
+		  <puzzle side2="-pentagon"></puzzle>
     </row>
 	 
 </craft>
