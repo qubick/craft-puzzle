@@ -23,27 +23,25 @@
                 if(shape === 'triangle'){
                     var connector1 = cylinder({r:5,fn:3})
                                     .rotateZ(60)
-                                    .translate([10,0,0]); 
                 }else if(shape === 'rectangle'){
                     var connector1 = cylinder({r:4,fn:4})
                                     .rotateZ(45)
-                                    .translate([10,0,0]); 
                 }else if(shape === 'circle'){
                     var connector1 = cylinder({r:4,fn:50})
-                                    .translate([10,0,0]);   
-                }
-                else if(shape === 'pentagon'){
-                    var connectr1 = cylinder({r:4,fn:5})
-                                .translate([10,0,0]);  
+                }else if(shape === 'pentagon'){
+                    var connector1 = cylinder({r:4,fn:5})
                 }else if(shape === 'hexagon'){
-                    var connectr1 = cylinder({r:4,fn:6})
-                                .translate([10,0,0]);  
-                }
+                    var connector1 = cylinder({r:4,fn:6})
+                }else if(shape === 'heptagon'){
+                    var connector1 = cylinder({r:4,fn:7})
+                }else if(shape === 'octagon'){
+					     var connector1 = cylinder({r:4,fn:10})
+					 }
 
                 if(direction === '+')
-                    connectors.push(connector1)
+                    connectors.push(connector1.translate([10,0,0]));
                 else if(direction === '-')
-                    holes.push(connector1)
+                    holes.push(connector1.translate([10,0,0]))
                 else
                     console.log("You need to specify the direction of connector at the bottom.\nconvex: + \nconcave: -")
 
@@ -55,21 +53,25 @@
                 
                 if(shape === 'triangle'){
                     var connector2 = cylinder({r:5,fn:3}).rotateZ(180)
-                                    .translate([0,10,0]); 
                 }else if(shape === 'rectangle'){
                     var connector2 = cylinder({r:4,fn:4})
                                     .rotateZ(45)
-                                    .translate([0,10,0]); 
                 }else if(shape === 'circle'){
-                    console.log("circle")
                     var connector2 = cylinder({r:4,fn:50})
-                                    .translate([0,10,0]);   
-                }
+                }else if(shape === 'pentagon'){
+                    var connector2 = cylinder({r:4,fn:5})
+                }else if(shape === 'hexagon'){
+                    var connector2 = cylinder({r:4,fn:6})
+                }else if(shape === 'heptagon'){
+                    var connector2 = cylinder({r:4,fn:7})
+                }else if(shape === 'octagon'){
+					     var connector2 = cylinder({r:4,fn:10})
+					 }
 
                 if(direction === '+')
-                    connectors.push(connector2)
+                    connectors.push(connector2.translate([0,10,0]));
                 else if(direction === '-')
-                    holes.push(connector2)
+                    holes.push(connector2.translate([0,10,0])); 
                 else
                     console.log("You need to specify the direction of connector at the left.\nconvex: + \nconcave: -")
             }
@@ -80,21 +82,25 @@
                 
                 if(shape === 'triangle'){
                     var connector3 = cylinder({r:5,fn:3}).rotateZ(180)
-                                    .translate([10,20,0]); 
                 }else if(shape === 'rectangle'){
                     var connector3 = cylinder({r:4,fn:4})
                                     .rotateZ(45)
-                                    .translate([10,20,0]); 
                 }else if(shape === 'circle'){
-                    console.log("circle")
                     var connector3 = cylinder({r:4,fn:50})
-                                    .translate([10,20,0]);   
-                }
+                }else if(shape === 'pentagon'){
+                    var connector3 = cylinder({r:4,fn:5})
+                }else if(shape === 'hexagon'){
+                    var connector3 = cylinder({r:4,fn:6})
+                }else if(shape === 'heptagon'){
+                    var connector3 = cylinder({r:4,fn:7})
+                }else if(shape === 'octagon'){
+					     var connector3 = cylinder({r:4,fn:10})
+					 }
 
                 if(direction === '+')
-                    connectors.push(connector3)
+                    connectors.push(connector3.translate([10,20,0]));
                 else if(direction === '-')
-                    holes.push(connector3)
+                    holes.push(connector3.translate([10,20,0])); 
                 else
                     console.log("You need to specify the direction of connector at the top of \nconvex: + \nconcave: -")
             }
@@ -105,20 +111,25 @@
                 
                 if(shape === 'triangle'){
                     var connector4 = cylinder({r:5,fn:3}).rotateZ(180)
-                                    .translate([20,10,0]); 
                 }else if(shape === 'rectangle'){
                     var connector4 = cylinder({r:4,fn:4})
                                     .rotateZ(45)
-                                    .translate([20,10,0]); 
                 }else if(shape === 'circle'){
                     var connector4 = cylinder({r:4,fn:50})
-                                    .translate([20,10,0]);   
-                }
+                }else if(shape === 'pentagon'){
+                    var connector4 = cylinder({r:4,fn:5})
+                }else if(shape === 'hexagon'){
+                    var connector4 = cylinder({r:4,fn:6})
+                }else if(shape === 'heptagon'){
+                    var connector4 = cylinder({r:4,fn:7})
+                }else if(shape === 'octagon'){
+					     var connector4 = cylinder({r:4,fn:10})
+					 }
                 
                 if(direction === '+')
-                    connectors.push(connector4)
+                    connectors.push(connector4.translate([20,10,0])); 
                 else if(direction === '-')
-                    holes.push(connector4)
+                    holes.push(connector4.translate([20,10,0])); 
                 else
                     console.log("You need to specify the direction of connector at the right.\nconvex: + \nconcave: -")
             } 
